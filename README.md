@@ -17,7 +17,7 @@ GIT Setup & Operations (after zip file download):
   cp ../finexo-html-20231113T224856Z-001.zip .
   git add .
   git commit -m "Add your-zip-file.zip"
-  *git push
+  git push
   *git log
   *git reset --soft HEAD^
   *git commit --amend -m "Commit zip file finexo-html-20231113T224856Z-001.zip"
