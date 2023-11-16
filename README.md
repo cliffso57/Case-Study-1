@@ -35,3 +35,26 @@ Deployment:
   unzip finexo-html-20231113T224856Z-001.zip
   mv index.html orig.index.html
   http://ip_address/finexo-html/
+
+Deployfinal script file:
+#!/bin/bash
+echo "*********** apt update -y *****************************"
+sudo apt update -y
+echo "*********** apt install apache2 -y ********************"
+sudo apt install apache2 -y
+echo "*********** cd /var/www/html **************************"
+cd /var/www/html
+ echo "*********** git clone repository **********************"
+sudo git clone https://github.com/cliffso57/Case-Study-1.git .
+echo "*********** apt install unzip ***********************"
+sudo apt install unzip
+echo "*********** unzip .zip ********************************"
+sudo unzip finexo-html-20231113T224856Z-001.zip
+# Determine Public IP address
+PUBLIC_IP=$(curl -s http://checkip.amazonaws.com)
+echo "************** Website is now available at: http://$PUBLIC_IP/********"
+ # Move upzipped files to /var/www/html for deployment
+echo "******* Move upzipped files to /var/www/html for deployment *********"
+cp -r ./finexo-html/* .
+echo “******* Delete unwanted files *****************”
+rm -r fine*
